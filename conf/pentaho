@@ -1,0 +1,22 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides: start-pentaho stop-pentaho
+# Required-Start: networking postgresql
+# Required-Stop: postgresql
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Description: Pentaho Server
+### END INIT INFO
+ 
+case "$1" in
+"start")
+su - pentaho -c "/opt/pentaho-server/start-pentaho.sh"
+;;
+"stop")
+su - pentaho -c "/opt/pentaho-server/stop-pentaho.sh"
+;;
+*)
+echo "Usage: $0 { start | stop }"
+;;
+esac
+exit 0
